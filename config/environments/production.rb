@@ -14,22 +14,20 @@ Automailer5::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = true
-
+  config.action_mailer.default_url_options = { :host => 'sheltered-sea-4795.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: "buscadeptos.com",
-  authentication: "plain",
-  enable_starttls_auto: true,
-  user_name: 'railsapptrial',
-  password: 'wawawiwa1'
-}
-
-  config.action_mailer.default_url_options = { host: "http://heroku.com" }
-
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "sheltered-sea-4795.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: 'railsapptrial',
+    password: 'wawawiwa1'
+  }
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
